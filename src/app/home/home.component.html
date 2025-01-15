@@ -1,0 +1,52 @@
+<section class="home d-flex align-items-center justify-content-center py-5">
+  <div class="container my-5">
+    <div class="row">
+      <div class="col-md-6 m-auto">
+        <div class="img">
+          <img class="w-100" src="{{imgtest}}" alt="">
+        </div>
+      </div>
+      <div class="col-md-5 text-end  hero">
+
+        <div class="nams">
+          <h6 class="pb-3 pt-4" [ngClass]="{'fade-slide': selectedItemIndex !== null && isImageChanged }"> {{location}}
+            <i class="fa-solid fa-location-dot"></i>
+          </h6>
+          <h1 class="pb-3" [ngClass]="{'fade-slide': selectedItemIndex !== null && isImageChanged }">
+            {{name}}
+          </h1>
+
+        </div>
+
+        <div class="hidden-zone">
+          <div class="line"></div>
+        </div>
+
+        <div class="dis">
+          <p class="pt-3" [ngClass]="{'fade': selectedItemIndex !== null && isImageChanged } ">
+            {{disc}}
+          </p>
+          <button class="btn btn-outline-primary rounded-end-5 rounded-start-5 px-4"
+            [ngClass]="{'fade': selectedItemIndex !== null && isImageChanged } ">
+            تابع القراءة <i class="fa-solid fa-up-right-from-square"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="row mt-5 d-flex justify-content-between flex-row-reverse">
+      <div class="col-sm-6 col-md-4 col-lg-2 p-0 mt-3" *ngFor="let item of data; let i = index">
+        <div class="card text-end" [class.active-card]="selectedItemIndex === i" (click)="toggleActive(i, item)">
+          <div class="position-relative m-2">
+            <img src="{{item.imgurl}}" class="card-img-top w-100 rounded-3" alt="..." />
+            <div class="overlay"></div>
+          </div>
+          <div class="card-body py-0 px-2 pb-2">
+            <p class="card-text">{{ item.name }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
